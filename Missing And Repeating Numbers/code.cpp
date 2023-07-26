@@ -1,6 +1,23 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2638
-\cocoatextscaling0\cocoaplatform0{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+vector<int> findMissingRepeatingNumbers(vector < int > a) {
+    // Write your code here
+  int n=a.size();
+  int hash[n+1]={0};
+  for(int i=0;i<n;i++){
+      hash[a[i]]++;
+  }
+   int repeat=-1;
+      int miss=-1;
+  for(int i=1;i<=n;i++){
+      if(hash[i]==2){
+          repeat=i;
+      }
+      else if(hash[i]==0){
+          miss=i;
+      }
+      if(repeat!=-1 && miss!=-1){
+          break;
+      }
+
+  }
+  return {repeat,miss};
 }
