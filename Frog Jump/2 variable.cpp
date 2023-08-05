@@ -1,6 +1,19 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2638
-\cocoatextscaling0\cocoaplatform0{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+#include <bits/stdc++.h> 
+int frogJump(int n, vector<int> &heights)
+{
+    // Write your code here.
+    
+    int prev1=0;
+    int prev2=0;
+    for(int i=1;i<n;i++){
+        int firststep=prev1+abs(heights[i]-heights[i-1]);
+        int secondstep=INT_MAX;
+        if(i>1){
+        secondstep=prev2+abs(heights[i]-heights[i-2]);
+        }
+        int current=min(firststep,secondstep);
+        prev2=prev1;
+        prev1=current;
+    }
+    return prev1;
 }
