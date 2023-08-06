@@ -1,6 +1,13 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2638
-\cocoatextscaling0\cocoaplatform0{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+#include <bits/stdc++.h> 
+int fun(int index,vector<int>&v1){
+    if(index==0)return v1[index];
+    if(index<0)return 0;
+    int pick=v1[index]+fun(index-2,v1);
+    int notpick=0+fun(index-1,v1);
+    return max(pick,notpick);
+}
+int maximumNonAdjacentSum(vector<int> &nums){
+    // Write your code here.
+    int n=nums.size();
+    return fun(n-1,nums);
 }
