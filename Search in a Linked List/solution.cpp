@@ -1,6 +1,10 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2638
-\cocoatextscaling0\cocoaplatform0{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+int searchInLinkedList(Node<int> *head, int k) {
+    // Write your code here.
+    while(head!=NULL){
+        if(head->data==k){
+            return 1;
+        }
+        head=head->next;
+    }
+    return 0;
 }
