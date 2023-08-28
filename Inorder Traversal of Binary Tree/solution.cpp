@@ -1,6 +1,30 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2638
-\cocoatextscaling0\cocoaplatform0{\fonttbl}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+/*
+    Following is Binary Tree Node structure:
+    class TreeNode
+    {
+    public:
+        int data;
+        TreeNode *left, *right;
+        TreeNode() : data(0), left(NULL), right(NULL) {}
+        TreeNode(int x) : data(x), left(NULL), right(NULL) {}
+        TreeNode(int x, TreeNode *left, TreeNode *right) : data(x), left(left), right(right) {}
+    };
+*/
+vector<int>v1;
+void fun(TreeNode* root){
+    if(root->left){
+        fun(root->left);
+    }
+    v1.push_back(root->data);
+    if(root->right){
+        fun(root->right);
+    }
+}
+vector<int> getInOrderTraversal(TreeNode *root)
+{
+    // Write your code here.
+    if(root==NULL)
+    return v1;
+    fun(root);
+    return v1;
 }
